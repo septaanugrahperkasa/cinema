@@ -1,0 +1,145 @@
+/* === Navbar === */
+.navbar {
+  align-items: center;
+  background-color: #0EA5E9;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  position: absolute;
+  transition: all 0.5s ease-in-out;
+  width: 100%;
+  z-index: 1000;
+}
+
+.navbar.sticky {
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-name: stickyTransition;
+  box-shadow: 0 2px 3px rgba(96, 96, 96, 0.1);
+  left: 0;
+  position: fixed;
+  top: 0;
+  transition: all 0.5s ease-in-out;
+}
+
+@keyframes stickyTransition {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, -100%, 0);
+  }
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* === Brand === */
+.navbar-brand {
+  align-items: center;
+  display: flex;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #ffffff;
+}
+.navbar-brand:hover {
+  color: rgb(231, 227, 227);
+}
+
+/* === Links === */
+.navbar-links {
+  display: flex;
+  gap: 2rem;
+}
+
+.navbar-links.open {
+  align-items: center;
+  background-color: #121212;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  right: 0;
+  top: 100%;
+  width: 100%;
+}
+
+/* === Individual Link === */
+.nav-link {
+  border-radius: 4px;
+  color: #ffffff;
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  transition: background-color 0.2s;
+}
+
+.nav-link:hover {
+  color: rgb(231, 227, 227);
+}
+
+/* === Hamburger === */
+.hamburger {
+  cursor: pointer;
+  display: none;
+  flex-direction: column;
+  height: 21px;
+  justify-content: space-between;
+  width: 30px;
+}
+
+/* === Hamburger Bar === */
+.bar {
+  background-color: #fff;
+  height: 3px;
+  transition: 0.3s;
+  width: 30px;
+}
+
+.bar.open:first-child {
+  transform: translateY(12px) rotate(-135deg);
+}
+
+.bar.open:nth-child(2) {
+  opacity: 0;
+}
+
+.bar.open:last-child {
+  transform: translateY(-12px) rotate(135deg);
+}
+
+.bar.open {
+  transition: transform 0.5s ease-in-out, opacity 0.1s ease-in-out;
+}
+
+/* === Responsive (Tablet) === */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 1rem;
+  }
+
+  .navbar-brand {
+    font-size: 1.2rem;
+  }
+
+  .navbar-links {
+    gap: 1rem;
+  }
+
+  .nav-link {
+    padding: 0.5rem;
+  }
+}
+
+/* === Responsive (Mobile) === */
+@media (max-width: 480px) {
+  .hamburger {
+    display: flex;
+  }
+
+  .navbar-links {
+    display: none;
+  }
+
+  .navbar-links.open {
+    display: flex;
+  }
+}
