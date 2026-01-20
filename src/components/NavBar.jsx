@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import "../styles/Navbar.css";
 import { useState } from "react";
-import logo from "../../public/movie-gallery-app-logo.png"
 
 function NavBar() {
   const [nav, setNav] = useState(false);
